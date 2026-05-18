@@ -1,63 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title> Student Directory </title>
-        <link rel ="stylesheet" href = "style.css">
-</head>
-
-//CSS
-
-body {
-    font-family: Arial;
-    background-color: #0b1f3a;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: #fff;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-}
-
-th {
-    background-color: #26236b;
-    color: black;
-    padding: 12px;
-}
-
-td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;
-}
-
-img{
-    border-radius: 50%;
-}
-
-
-<body>
-    <h1> Zielle International University - Student Directory </h1>
-
-    <table>
-        <tr>
-            <th> No. </th>
-            <th> Name </th>
-            <th> Image </th>
-            <th> Age </th>
-            <th> Birthday </th>
-            <th Contact Number </th>
-        </tr>
-</table>
-
-</body>
-</html>
-
 <?php
     $students = [
         [
@@ -111,7 +51,7 @@ img{
         ],
         [
             "name" => "De Dios, Iris Nakeisha Elizabeth",
-            "image" => "fa3_rey\profile pics\keisha.jpg",
+            "image" => "appdevprojects\profile pics\keisha.jpg",
             "age" => 21,
             "birthday" => "March 16, 2005",
             "contact" => "09133456799",
@@ -132,9 +72,86 @@ img{
         ]
 
     ];
-    ?>
+    
 
     usort($students, function($a,$b) {
         return strcmp($a['name'], $b['name']);
     });
-       
+?>
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> Student Directory </title>
+        <link rel ="stylesheet" href = "style.css">
+
+
+<style>
+
+body {
+    font-family: Arial;
+    background-color: #0b1f3a;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th {
+    background-color: #0f64d3;
+    color: black;
+    padding: 12px;
+}
+
+td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+img{
+    border-radius: 50%;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="container"> 
+    <h1> Zielle International University - Student Directory </h1>
+
+    <table>
+        <tr>
+            <th> No. </th>
+            <th> Name </th>
+            <th> Image </th>
+            <th> Age </th>
+            <th> Birthday </th>
+            <th> Contact Number </th>
+        </tr>
+
+        <?php
+        $no = 1;
+        
+        foreach($students as $index => $student): ?>
+            <tr>
+                <td> <?php echo $index + 1; ?> </td>
+                <td> <?php echo $student['name']; ?> </td>
+                <td> <img src="<?php echo $student['image']; ?>" alt="Profile Picture" width="100" height="100"> </td>
+                <td> <?php echo $student['age']; ?> </td>
+                <td> <?php echo $student['birthday']; ?> </td>
+            <td> <?php echo $student['contact']; ?> </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+</body>
+</html>
