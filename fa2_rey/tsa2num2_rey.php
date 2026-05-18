@@ -40,7 +40,7 @@
 
 <?php
 $name = "Juliana Simone B. Rey";
-$grade = 100;
+$grade = 77;
 
 
 if ($grade >= 93 && $grade <= 100) {
@@ -70,18 +70,18 @@ if ($grade >= 93 && $grade <= 100) {
 }
 
 
-if ($rank == "A") $image = "http://localhost/formatives_rey/fa2_rey/images/A.png.jpg";
-elseif ($rank == "A-") $image = "http://localhost/formatives_rey/fa2_rey/images/A-.png.jpg";
-elseif ($rank == "B+") $image = "http://localhost/formatives_rey/fa2_rey/images/B+.png.jpg";
-elseif ($rank == "B") $image = "http://localhost/formatives_rey/fa2_rey/images/B.png.jpg";
-elseif ($rank == "B-") $image = "http://localhost/formatives_rey/fa2_rey/images/B-.png.jpg";
-elseif ($rank == "C+") $image = "http://localhost/formatives_rey/fa2_rey/images/C+.png.jpg";
-elseif ($rank == "C") $image = "http://localhost/formatives_rey/fa2_rey/images/C.png.jpg";
-elseif ($rank == "C-") $image = "http://localhost/formatives_rey/fa2_rey/images/C-.png.jpg";
-elseif ($rank == "D+") $image = "http://localhost/formatives_rey/fa2_rey/images/D+.png.jpg";
-elseif ($rank == "D") $image = "http://localhost/formatives_rey/fa2_rey/images/D.png.jpg";
-elseif ($rank == "D-") $image = "http://localhost/formatives_rey/fa2_rey/images/D-.png.jpg";
-else $image = "http://localhost/formatives_rey/fa2_rey/images/F.png.jpg";
+if ($rank == "A") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/A.png.jpg";
+elseif ($rank == "A-") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/A-.png.jpg";
+elseif ($rank == "B+") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/B+.png.jpg";
+elseif ($rank == "B") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/B.png.jpg";
+elseif ($rank == "B-") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/B-.png.jpg";
+elseif ($rank == "C+") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/C+.png.jpg";
+elseif ($rank == "C") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/C.png.jpg";
+elseif ($rank == "C-") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/C-.png.jpg";
+elseif ($rank == "D+") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/D+.png.jpg";
+elseif ($rank == "D") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/D.png.jpg";
+elseif ($rank == "D-") $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/D-.png.jpg";
+else $image = "http://localhost/formatives_rey/appdevprojects/fa2_rey/images/F.png.jpg";
 ?>
 
 <table>
