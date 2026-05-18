@@ -56,7 +56,7 @@
 <body>
 
 <div class="container">
-    <h1>Formative 2 Activities</h1>
+    <h1>Formative 3 Activities</h1>
 
     <a href="number1fa3_rey.php" class="menu-btn">✨ Student Directory</a>
     <a href="number2fa3_rey.php" class="menu-btn">💗 Using Arrays</a>
