@@ -110,7 +110,7 @@
             width: 1000px;
             border-collapse: collapse;
             background-color: white;
-            table-layout: auto;
+            table-layout: auto          ;
         }
 
         th {
