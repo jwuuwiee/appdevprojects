@@ -50,7 +50,7 @@
     <th colspan="3" class="header">
         <div class="header-content">
             <div class="title">MEASURE CONVERSION CHART - LENGTH</div>
-        <img src ="http://localhost/formatives_rey/fa1_rey/ermm.jpg" alt="icon">
+        <img src ="http://localhost/formatives_rey/appdevprojects/fa2_rey/ermm.jpg" alt="icon">
         </div>
 </th>
     </tr>
