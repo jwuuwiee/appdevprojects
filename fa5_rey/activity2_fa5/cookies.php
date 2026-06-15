@@ -1,5 +1,4 @@
 <?php
-// Set cookies only if they are not already set (prevents resetting every refresh)
 if (!isset($_COOKIE["firstname"])) {
     setcookie("firstname", "Juliana Simone", time() + 10);
 }
