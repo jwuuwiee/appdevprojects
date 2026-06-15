@@ -51,10 +51,12 @@ a:hover {
 
 <h1>🍓 PHP Activity Menu 🍓</h1>
 
+<a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity1_fa5/info_get.php">📝 Personal Info (GET)</a>
+<a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity1_fa5/info_post.php">📝 Personal Info (POST)</a>
 <a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity2_fa5/cookies.php">🍪 Cookie Activity</a>
 <a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity3_fa5/faveColor.php">🎨 Favorite Colors</a>
-<a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity1_fa5/info_post.php">📝 Personal Info (POST)</a>
-<a href="http://localhost/formatives_rey/appdevprojects/fa5_rey/activity1_fa5/info_get.php">📝 Personal Info (GET)</a>
+
+
 
 
 </div>
