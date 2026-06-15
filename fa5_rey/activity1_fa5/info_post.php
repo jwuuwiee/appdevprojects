@@ -1,16 +1,72 @@
 <?php
 $firstname = $middlename = $lastname = $dob = $address = "";
 $submitted = false;
+$errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $firstname = $_POST['firstname'];
-    $middlename = $_POST['middlename'];
-    $lastname = $_POST['lastname'];
-    $dob = $_POST['dob'];
-    $address = $_POST['address'];
-    $submitted = true;
+    $firstname = trim((string)($_POST['firstname'] ?? ''));
+    $middlename = trim((string)($_POST['middlename'] ?? ''));
+    $lastname = trim((string)($_POST['lastname'] ?? ''));
+    $dob = trim((string)($_POST['dob'] ?? ''));
+    $address = trim((string)($_POST['address'] ?? ''));
+    
+
+    $namePattern = "/^[a-zA-Z\s'\-]+$/";
+
+    if ($firstname === '') {
+        $errors['firstname'] = 'First name is required.';
+    } elseif (!preg_match($namePattern, $firstname)) {
+        $errors['firstname'] = 'First name may contain only letters, spaces, hyphens and apostrophes.';
+    }
+
+    if ($middlename === '') {
+        $errors['middlename'] = 'Middle name is required.';
+    } elseif (!preg_match($namePattern, $middlename)) {
+        $errors['middlename'] = 'Middle name may contain only letters, spaces, hyphens and apostrophes.';
+    }
+
+    if ($lastname === '') {
+        $errors['lastname'] = 'Last name is required.';
+    } elseif (!preg_match($namePattern, $lastname)) {
+        $errors['lastname'] = 'Last name may contain only letters, spaces, hyphens and apostrophes.';
+    }
+
+    if ($dob === '') {
+        $errors['dob'] = 'Date of birth is required.';
+    } else {
+        $timestamp = strtotime($dob);
+        if ($timestamp === false) {
+            $errors['dob'] = 'Date of birth is not a valid date. Try YYYY-MM-DD or a readable date.';
+        } else {
+           
+            $dob = date('F j, Y', $timestamp);
+        }
+    }
+
+    if ($address === '') {
+        $errors['address'] = 'Address is required.';
+    } elseif (strlen($address) < 5) {
+        $errors['address'] = 'Address must be at least 5 characters.';
+    } elseif (!preg_match("/^[a-zA-Z0-9\s\.,#'\/-]+$/", $address)) {
+        $errors['address'] = 'Address contains invalid characters.';
+    }
+
+    if (empty($errors)) {
+        $submitted = true;
+    }
+}
+
+$sanitized_input = '';
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['text_input'])) {
+    $input = trim((string)($_POST['text_input'] ?? ''));
+    if (preg_match("/^[a-zA-Z0-9\s]+$/", $input)) {
+        $sanitized_input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    } else {
+        $sanitized_input = "Invalid input: Only letters, numbers, and spaces are allowed.";
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,13 +123,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         }
         input[type="text"]:focus {
             outline: none;
-            border-color: #10b981;
+            border-color: #3b82f6;
             background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
         input[type="submit"] {
             width: 100%;
-            background-color: #10b981;
+            background-color: #3b82f6;
             color: white;
             border: none;
             padding: 12px;
@@ -85,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             margin-top: 10px;
         }
         input[type="submit"]:hover {
-            background-color: #059669;
+            background-color: #2563eb;
         }
         .output-box {
             margin-top: 25px;
@@ -118,6 +174,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     <div class="container">
         <h2>Personal Information (POST)</h2>
+
+        <?php if (!empty($errors)): ?>
+            <div class="output-box" style="background-color:#fff7ed;border-color:#fed7aa;color:#7c2d12;">
+                <h3>There were errors with your submission:</h3>
+                <?php foreach ($errors as $err): ?>
+                    <div class="output-line"><?php echo htmlspecialchars($err); ?></div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
         <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="form-group">
                 <label>First Name</label>
